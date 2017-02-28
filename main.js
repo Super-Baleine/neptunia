@@ -21,11 +21,34 @@ var enc = function(message, block){
 		while (i < block.length) {
 			x[j][i] = message[j]*block[j][i];
 			i++;
+		}
+		j++;
+		i = 0;
+	}
+console.log(x);
+return x;
+}
+
+var dec = function(z, block){
+	var i = 0;
+	var j = 0;
+	var x = [
+		[],
+		[],
+		[]
+	]
+	while (j < z.length) {
+		while (i < block.length) {
+			x[j][i] = z[j][i]/block[j][i];
+			i++;
 			console.log(x);
 		}
 		j++;
 		i = 0;
 	}
+return x;
 }
 
-enc(message, block);
+var z = enc(message, block);
+var h = dec(z, block);
+console.log(h);
