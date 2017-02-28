@@ -9,6 +9,34 @@ var block = [
 	[10, 2, 3],
 	[25, 17, 21]
 ];
+
+var key = [
+	[5, 6, 6],
+	[46, 64, 4],
+	[35, 65, 5]
+];
+
+var xor = function(key, block){
+	var i = 0;
+	var j = 0;
+	var x = [
+		[],
+		[],
+		[]
+	];
+	while (j < key.length) {
+		while (i < block.length) {
+			x[i][j] = block[i][j]^key[i][j];
+			i++;
+		}
+		j++;
+		i = 0;
+	}
+return x;
+}
+
+var cipherBlock = xor(key, block);
+
 var enc = function(message, block){
 	var i = 0;
 	var j = 0;
@@ -16,7 +44,7 @@ var enc = function(message, block){
 		[],
 		[],
 		[]
-	]
+	];
 	while (j < message.length) {
 		while (i < block.length) {
 			x[j][i] = message[j]*block[j][i];
@@ -39,7 +67,7 @@ var dec = function(z, block){
 	]
 	while (j < z.length) {
 		while (i < block.length) {
-			x[j][i] = z[j][i]/block[j][i];
+			x[j] = z[j][i]/block[j][i];
 			i++;
 		}
 		j++;
@@ -48,6 +76,6 @@ var dec = function(z, block){
 return x;
 }
 
-var z = enc(message, block);
-var h = dec(z, block);
+var z = enc(message, cipherBlock);
+var h = dec(z, cipherBlock);
 console.log(h);
