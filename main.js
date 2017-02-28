@@ -64,7 +64,7 @@ var dec = function(z, block){
 		[],
 		[],
 		[]
-	]
+	];
 	while (j < z.length) {
 		while (i < block.length) {
 			x[j] = z[j][i]/block[j][i];
