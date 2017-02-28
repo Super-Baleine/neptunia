@@ -1,9 +1,6 @@
 'use strict';
-var message = [
-	[3],
-	[2], //j : column
-	[1]
-];
+var message = [3, 2, 7];
+
 var block = [
 	[20, 16, 7], //i : row in a j column, block[0][2] = 16
 	[10, 2, 3],
@@ -53,7 +50,6 @@ var enc = function(message, block){
 		j++;
 		i = 0;
 	}
-console.log(x);
 return x;
 }
 
@@ -76,6 +72,8 @@ var dec = function(z, block){
 return x;
 }
 
+console.log(message);
 var z = enc(message, cipherBlock);
+console.log(z);
 var h = dec(z, cipherBlock);
 console.log(h);
