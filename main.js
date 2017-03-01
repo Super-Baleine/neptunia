@@ -4,11 +4,7 @@ var message = [5, 4, 7];
 var init = function(){
 	var i = 0;
 	var j = 0;
-	var x = [
-		[],
-		[],
-		[]
-	]
+	var x = [[], [], []];
 	return [i, j, x];
 };
 
