@@ -1,5 +1,5 @@
 'use strict';
-var message = [5, 4, 3];
+var message = [5, 4, 7];
 
 var init = function(){
 	var i = 0;
@@ -9,12 +9,8 @@ var init = function(){
 		[],
 		[]
 	]
-	return [
-		i,
-		j,
-		x
-	]
-}
+	return [i, j, x];
+};
 
 var block = [
 	[20, 16, 7], //i : row in a j column, block[0][2] = 16
@@ -44,7 +40,7 @@ var xor = function(key, block){
 		i = 0;
 	}
 return x;
-}
+};
 
 var cipherBlock = xor(key, block);
 
@@ -62,7 +58,7 @@ var enc = function(message, block){
 		i = 0;
 	}
 return x;
-}
+};
 
 var dec = function(z, block){
 	var u = init();
@@ -78,7 +74,7 @@ var dec = function(z, block){
 		i = 0;
 	}
 return x;
-}
+};
 
 console.log(message);
 var z = enc(message, cipherBlock);
